@@ -1,0 +1,104 @@
+<fieldset class="fill">
+  <legend class="fill__legend js__fill-legend">
+    <div class="fill__legend--title">
+      <i class="fill__legend--title--icon fas fa-keyboard"></i>
+      <h2 class="fill__legend--title--name">Rellena</h2>
+    </div>
+    <div>
+      <i
+        class="js__arrowDown2 fas fa-chevron-down fill__legend--title--arrow"
+      ></i>
+    </div>
+  </legend>
+  <div class="js__field js__inputs field collapsed">
+    <div class="field__item">
+      <label for="name">Nombre completo</label>
+      <input
+        class="field__item--placeholder js-reset js-input-name"
+        id="name"
+        type="text"
+        name="name"
+        placeholder="Ej: Paz Gimeno Lorente"
+        required
+      />
+    </div>
+
+    <div class="field__item">
+      <label for="job">Puesto</label>
+      <input
+        class="field__item--placeholder js-reset js-input-job"
+        id="job"
+        type="text"
+        name="job"
+        placeholder="Ej: Front-end unicorn"
+        required
+      />
+    </div>
+    <div class="field__item image">
+      <div class="action action__upload-btn">
+        <label class="profile_label" for="profile_image">Añadir imagen</label>
+        <input
+          class="add_image__button action__hiddenField js__profile-upload-btn js-input-profile-image"
+          type="file"
+          value="Añadir imagen"
+          id="profile_image"
+        />
+      </div>
+      <div class="add_image__photo-preview js__profile-preview"></div>
+    </div>
+    <div class="field__item">
+      <label for="email">Email</label>
+      <input
+        class="field__item--placeholder js-reset js-input-email"
+        id="email"
+        type="email"
+        name="email"
+        href=""
+        placeholder="Ej: paz-gimeno@gmail.com"
+        required
+      />
+    </div>
+    <div class="field__item">
+      <label for="phone">Teléfono</label>
+      <input
+        class="field__item--placeholder js-reset js-input-phone"
+        id="phone"
+        type="tel"
+        name="phone"
+        href=""
+        placeholder="Ej: 555 555 555"
+        required
+      />
+    </div>
+    <div class="field__item">
+      <label for="linkedin">Linkedin</label>
+      <input
+        class="field__item--placeholder js-reset js-input-linkedin"
+        id="linkedin"
+        type="text"
+        name="linkedin"
+        href=""
+        placeholder="Ej: paz-gimeno"
+        required
+      />
+    </div>
+    <p class="field__warning">
+      <span class="field__warning-star">*</span> Escribe únicamente la parte de
+      la URL que lleva a tu perfil de LinkedIn
+    </p>
+    <div class="field__item">
+      <label for="github">Github</label>
+      <input
+        class="field__item--placeholder js_github js-reset js-input-github"
+        id="github"
+        type="text"
+        name="github"
+        placeholder="Ej: PazGimeno1937"
+      />
+    </div>
+    <p class="field__warning">
+      <span class="field__warning-star">*</span> Escribe únicamente la parte de
+      la URL que lleva a tu perfil de Github
+    </p>
+  </div>
+</fieldset>
