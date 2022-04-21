@@ -56,8 +56,11 @@
       height: 30px;
       padding: 3px 7px;
       border: solid 1px $hospital-green;
-      color: #c5c5c5;
+      color: $black;
       font-family: $font-family;
+      ::placeholder {
+        color: #c5c5c5;
+      }
     }
   }
 }

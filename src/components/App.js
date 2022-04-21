@@ -5,14 +5,34 @@ import '../styles/App.scss';
 import { useState } from 'react';
 
 function App() {
-  const [name, setName] = useState('Nombre apellido');
-  const handleName = (event) => {
-    if (event.currentTarget.value === '') {
-      setName('Nombre apellido');
-    } else {
-      setName(event.currentTarget.value);
-    }
+  const [dataCard, setDataCard] = useState({
+    palette: '1',
+    name: '',
+    job: '',
+    email: '',
+    phone: '',
+    linkedin: '',
+    github: '',
+  });
+  const handleData = (event) => {
+    const inputValue = event.target.value;
+    const inputChanged = event.target.name;
+    setDataCard({
+      ...dataCard,
+      [inputChanged]: inputValue,
+    })
   };
+  const handleReset = () => {
+    setDataCard({
+      palette: '1',
+      name: '',
+      job: '',
+      email: '',
+      phone: '',
+      linkedin: '',
+      github: '',
+    })
+  }
   return (
     <>
       <header className="header">
@@ -29,17 +49,17 @@ function App() {
 
       <main className="create">
         <section className="profile">
-          <button className="profile__button js-btn-cancel">
+          <button className="profile__button js-btn-cancel" onClick={handleReset}>
             <i className="fas fa-trash-alt"></i>
             <p className="profile__text">Reset</p>
           </button>
           <div className="rectangle js-preview">
             <div className="rectangle__titles">
               <h2 className="js-reset rectangle__titles-title js_name">
-                {name}
+                {dataCard.name || 'Nombre Apellido'}
               </h2>
               <h3 className="js-reset rectangle__titles-subtitle js_job">
-                Front-end developer
+                {dataCard.job || 'Front-end developer'}
               </h3>
             </div>
             <div className="rectangle__preview js__profile-image"></div>
@@ -47,7 +67,7 @@ function App() {
               <li>
                 <a
                   target="_blank"
-                  href="tel:"
+                  href={`tel:${dataCard.phone}`}
                   className="rectangle__icons-item js_phone"
                 >
                   <i className="rectangle__icons-item-size fas fa-mobile-alt"></i>
@@ -56,7 +76,7 @@ function App() {
               <li>
                 <a
                   target="_blank"
-                  href="mailto:"
+                  href={`mailto:${dataCard.email}`}
                   className="rectangle__icons-item js_email"
                 >
                   <i className="rectangle__icons-item-size far fa-envelope"></i>
@@ -65,7 +85,7 @@ function App() {
               <li>
                 <a
                   target="_blank"
-                  href=""
+                  href={`https://www.linkedin.com/in/${dataCard.linkedin}`}
                   className="rectangle__icons-item js_linkedin"
                 >
                   <i className="rectangle__icons-item-size fab fa-linkedin-in"></i>
@@ -74,7 +94,7 @@ function App() {
               <li>
                 <a
                   target="_blank"
-                  href=""
+                  href={`https://github.com/${dataCard.github}`}
                   className="rectangle__icons-item js_github"
                 >
                   <i className="rectangle__icons-item-size fab fa-github-alt"></i>
@@ -110,8 +130,9 @@ function App() {
                       type="radio"
                       id="color1"
                       name="palette"
-                      defaultValue="1"
-                      defaultChecked
+                      value="1"
+                      onChange={handleData}
+                      checked={dataCard.palette === '1'}
                     />
                     <div className="design__rectangle design__rectangle--1"></div>
                     <div className="design__rectangle design__rectangle--2"></div>
@@ -124,7 +145,9 @@ function App() {
                       type="radio"
                       id="color2"
                       name="palette"
-                      defaultValue="2"
+                      value="2"
+                      onChange={handleData}
+                      checked={dataCard.palette === '2'}
                     />
                     <div className="design__rectangle design__rectangle--4"></div>
                     <div className="design__rectangle design__rectangle--5"></div>
@@ -137,7 +160,9 @@ function App() {
                       type="radio"
                       id="color3"
                       name="palette"
-                      defaultValue="3"
+                      value="3"
+                      onChange={handleData}
+                      checked={dataCard.palette === '3'}
                     />
                     <div className="design__rectangle design__rectangle--7"></div>
                     <div className="design__rectangle design__rectangle--8"></div>
@@ -149,7 +174,9 @@ function App() {
                       type="radio"
                       id="color4"
                       name="palette"
-                      defaultValue="4"
+                      value="4"
+                      onChange={handleData}
+                      checked={dataCard.palette === '4'}
                     />
                     <div className="design__rectangle design__rectangle--10"></div>
                     <div className="design__rectangle design__rectangle--11"></div>
@@ -181,7 +208,8 @@ function App() {
                     name="name"
                     placeholder="Ej: Paz Gimeno Lorente"
                     required
-                    onChange={handleName}
+                    value= {dataCard.name}
+                    onChange={handleData}
                   />
                 </div>
                 <div className="field__item">
@@ -193,6 +221,8 @@ function App() {
                     name="job"
                     placeholder="Ej: Front-end unicorn"
                     required
+                    value= {dataCard.job}
+                    onChange={handleData}
                   />
                 </div>
                 <div className="field__item image">
@@ -218,6 +248,8 @@ function App() {
                     href=""
                     placeholder="Ej: paz-gimeno@gmail.com"
                     required
+                    value= {dataCard.email}
+                    onChange={handleData}
                   />
                 </div>
                 <div className="field__item">
@@ -230,6 +262,8 @@ function App() {
                     href=""
                     placeholder="Ej: 555 555 555"
                     required
+                    value= {dataCard.phone}
+                    onChange={handleData}
                   />
                 </div>
                 <div className="field__item">
@@ -242,6 +276,8 @@ function App() {
                     href=""
                     placeholder="Ej: paz-gimeno"
                     required
+                    value= {dataCard.linkedin}
+                    onChange={handleData}
                   />
                 </div>
                 <p className="field__warning">
@@ -257,6 +293,8 @@ function App() {
                     type="text"
                     name="github"
                     placeholder="Ej: PazGimeno1937"
+                    value= {dataCard.github}
+                    onChange={handleData}
                   />
                 </div>
                 <p className="field__warning">
