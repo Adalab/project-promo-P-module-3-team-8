@@ -2,9 +2,11 @@ import logo from '../images/Codequetecode.png';
 import tarjetasmolonas from '../images/tarjetas-molonas.png';
 import logoadalab from '../images/logo-adalab.png';
 import '../styles/App.scss';
+import dataApi from '../services/api.js';
 import { useState } from 'react';
 
 function App() {
+  const [apiData, setApiData] = useState({});
   const [dataCard, setDataCard] = useState({
     palette: '1',
     name: '',
@@ -32,6 +34,12 @@ function App() {
       phone: '',
       linkedin: '',
       github: '',
+    });
+  };
+  const handleClickCreateCard = (ev) => {
+    ev.preventDefault();
+    dataApi(dataCard).then((info) => {
+      setApiData(info);
     });
   };
   return (
@@ -319,25 +327,28 @@ function App() {
                 </div>
               </legend>
               <article className="js__share share__article">
-                {' '}
                 {/* collapsed */}
                 <div className="share__container">
-                  <button className="share__container--button js-share-btn">
+                  <button
+                    className="share__container--button js-share-btn"
+                    onClick={handleClickCreateCard}
+                  >
                     <i className="share__container--button__icon far fa-address-card"></i>
                     <p className="share__container--button__text js_create">
                       Crear tarjeta
                     </p>
                   </button>
                 </div>
-                <div className="hidden share__card js-message">
+                <div className=" share__card js-message">
+                  {/* hidden */}
                   <p className="share__card__title js-create">
                     La tarjeta ha sido creada:
                   </p>
                   <a
                     className="share__card__link js-url"
-                    href="https://awesome-profile-card.com?id=A456DF0001"
+                    href={apiData.cardUrl}
                   >
-                    https://awesome-profile-card.com?id=A456DF0001
+                    {apiData.cardUrl || 'url'}
                   </a>
                   <div className="share__card__twitter">
                     <button className="share__card__twitter--button js-twitter-button">
