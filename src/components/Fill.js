@@ -1,3 +1,5 @@
+import GetAvatar from "./GetAvatar";
+import Profile from './Profile';
 function Fill(props) {
   const handleChangeInput = (ev) => {
     props.handleInput({
@@ -46,7 +48,9 @@ function Fill(props) {
             onChange={handleChangeInput}
           />
         </div>
-        <div className="field__item image">
+        <Profile />
+        <GetAvatar />
+        {/* <div className="field__item image">
           <div className="action action__upload-btn">
             <label className="profile_label" htmlFor="profile_image">
               Añadir imagen
@@ -57,8 +61,8 @@ function Fill(props) {
               id="profile_image"
             />
           </div>
-          <div className="add_image__photo-preview js__profile-preview"></div>
-        </div>
+          <div className="add_image__photo-preview js__profile-preview"></div> 
+  </div> */}
         <div className="field__item">
           <label htmlFor="email">Email</label>
           <input

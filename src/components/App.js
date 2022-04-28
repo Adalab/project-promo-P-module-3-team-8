@@ -15,6 +15,12 @@ function App() {
     github: '',
   });
 
+  // Componente foto
+  const [avatar, setAvatar] = useState('');
+  const updateAvatar = (avatar) => {
+    setAvatar(avatar);
+  };
+
   const handleData = (event) => {
     const inputValue = event.value;
     const inputChanged = event.name;
