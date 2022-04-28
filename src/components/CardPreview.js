@@ -1,7 +1,11 @@
 function CardPreview(props) {
+  const handleResetBtn = () => {
+    props.handleReset();
+  };
+
   return (
     <section className="profile">
-      <button className="profile__button js-btn-cancel" onClick={handleReset}>
+      <button className="profile__button js-btn-cancel" onClick={handleResetBtn}>
         <i className="fas fa-trash-alt"></i>
         <p className="profile__text">Reset</p>
       </button>

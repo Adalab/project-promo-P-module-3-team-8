@@ -1,4 +1,11 @@
 function Design(props) {
+  const handleChangeInput = (ev) => {
+    props.handleInput({
+      value: ev.target.value,
+      name: ev.target.name,
+    });
+  };
+
   return (
     <fieldset className="design js__design-fieldset">
       <legend className="design__legend js__design-legend">
@@ -25,7 +32,7 @@ function Design(props) {
               id="color1"
               name="palette"
               value="1"
-              onChange={handleData}
+              onChange={handleChangeInput}
               checked={props.data.palette === '1'}
             />
             <div className="design__rectangle design__rectangle--1"></div>
@@ -40,7 +47,7 @@ function Design(props) {
               id="color2"
               name="palette"
               value="2"
-              onChange={handleData}
+              onChange={handleChangeInput}
               checked={props.data.palette === '2'}
             />
             <div className="design__rectangle design__rectangle--4"></div>
@@ -55,7 +62,7 @@ function Design(props) {
               id="color3"
               name="palette"
               value="3"
-              onChange={handleData}
+              onChange={handleChangeInput}
               checked={props.data.palette === '3'}
             />
             <div className="design__rectangle design__rectangle--7"></div>
@@ -69,7 +76,7 @@ function Design(props) {
               id="color4"
               name="palette"
               value="4"
-              onChange={handleData}
+              onChange={handleChangeInput}
               checked={props.data.palette === '4'}
             />
             <div className="design__rectangle design__rectangle--10"></div>

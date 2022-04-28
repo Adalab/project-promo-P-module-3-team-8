@@ -1,12 +1,7 @@
 import '../styles/App.scss';
 import dataApi from '../services/api.js';
 import { useState } from 'react';
-import Header from './Header';
-import Footer from './Footer';
-import CardPreview from './CardPreview';
-import Design from './Design';
-import Fill from './Fill';
-import Share from './Share';
+import Card from './Card';
 
 function App() {
   const [apiData, setApiData] = useState({});
@@ -21,8 +16,8 @@ function App() {
   });
 
   const handleData = (event) => {
-    const inputValue = event.target.value;
-    const inputChanged = event.target.name;
+    const inputValue = event.value;
+    const inputChanged = event.name;
     setDataCard({
       ...dataCard,
       [inputChanged]: inputValue,
@@ -46,22 +41,7 @@ function App() {
     });
   };
   return (
-    <>
-      {/* header */}
-      <Header />
-      <main className="create">
-        <CardPreview data={dataCard} />
-
-        <div className="form">
-          <form action="">
-            <Design data={dataCard} />
-            <Fill data={dataCard} />
-            <Share data={dataCard} apiData={apiData} />
-          </form>
-        </div>
-      </main>
-      <Footer />
-    </>
+    <Card apiData={apiData} dataCard={dataCard} handleInput={handleData} handleReset={handleReset} handleCard={handleClickCreateCard}/>
   );
 }
 

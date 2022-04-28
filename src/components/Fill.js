@@ -1,4 +1,11 @@
 function Fill(props) {
+  const handleChangeInput = (ev) => {
+    props.handleInput({
+      value: ev.target.value,
+      name: ev.target.name,
+    });
+  };
+
   return (
     <fieldset className="fill">
       <legend className="fill__legend js__fill-legend">
@@ -23,7 +30,7 @@ function Fill(props) {
             placeholder="Ej: Paz Gimeno Lorente"
             required
             value={props.data.name}
-            onChange={handleData}
+            onChange={handleChangeInput}
           />
         </div>
         <div className="field__item">
@@ -36,7 +43,7 @@ function Fill(props) {
             placeholder="Ej: Front-end unicorn"
             required
             value={props.data.job}
-            onChange={handleData}
+            onChange={handleChangeInput}
           />
         </div>
         <div className="field__item image">
@@ -63,7 +70,7 @@ function Fill(props) {
             placeholder="Ej: paz-gimeno@gmail.com"
             required
             value={props.data.email}
-            onChange={handleData}
+            onChange={handleChangeInput}
           />
         </div>
         <div className="field__item">
@@ -77,7 +84,7 @@ function Fill(props) {
             placeholder="Ej: 555 555 555"
             required
             value={props.data.phone}
-            onChange={handleData}
+            onChange={handleChangeInput}
           />
         </div>
         <div className="field__item">
@@ -91,7 +98,7 @@ function Fill(props) {
             placeholder="Ej: paz-gimeno"
             required
             value={props.data.linkedin}
-            onChange={handleData}
+            onChange={handleChangeInput}
           />
         </div>
         <p className="field__warning">
@@ -107,7 +114,7 @@ function Fill(props) {
             name="github"
             placeholder="Ej: PazGimeno1937"
             value={props.data.github}
-            onChange={handleData}
+            onChange={handleChangeInput}
           />
         </div>
         <p className="field__warning">

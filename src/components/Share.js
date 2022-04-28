@@ -1,4 +1,9 @@
 function Share(props) {
+  const handleClick = (ev) => {
+    ev.preventDefault();
+    props.handleCard();
+  };
+
   return (
     <fieldset className="share">
       <legend className="share__legend js__share-legend">
@@ -15,7 +20,7 @@ function Share(props) {
         <div className="share__container">
           <button
             className="share__container--button js-share-btn"
-            onClick={handleClickCreateCard}
+            onClick={handleClick}
           >
             <i className="share__container--button__icon far fa-address-card"></i>
             <p className="share__container--button__text js_create">
@@ -28,8 +33,8 @@ function Share(props) {
           <p className="share__card__title js-create">
             La tarjeta ha sido creada:
           </p>
-          <a className="share__card__link js-url" href={props.apiData.cardUrl}>
-            {props.apiData.cardUrl || 'url'}
+          <a className="share__card__link js-url" href={props.apiData.cardURL}>
+           {props.apiData.cardURL || 'url'}
           </a>
           <div className="share__card__twitter">
             <button className="share__card__twitter--button js-twitter-button">
