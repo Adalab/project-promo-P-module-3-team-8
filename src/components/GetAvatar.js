@@ -59,22 +59,37 @@ function GetAvatar(props) {
 
   const avatar = props.avatar === '' ? defaultAvatar : props.avatar;
   return (
-    <div className="get-avatar">
-      <label className="get-avatar__label">
-        Get avatar!
+    <div className="field__item image">
+    <div className="action action__upload-btn">
+    <label className="profile_label" htmlFor="profile_image">
+      Añadir imagen
+    </label>
         <input
           type="file"
           ref={myFileField}
-          className="get-avatar__upload-field"
+          className="add_image__button action__hiddenField js__profile-upload-btn js-input-profile-image"
           onChange={uploadImage}
+          id="profile_image"
         />
-      </label>
-
       <div
         className="get-avatar__preview"
         style={{ backgroundImage: `url(${avatar})` }}
       ></div>
     </div>
+    </div>
+  /* <div className="field__item image">
+          <div className="action action__upload-btn">
+            <label className="profile_label" htmlFor="profile_image">
+              Añadir imagen
+            </label>
+            <input
+              className="add_image__button action__hiddenField js__profile-upload-btn js-input-profile-image"
+              defaultValue="Añadir imagen"
+              id="profile_image"
+            />
+          </div>
+          <div className="add_image__photo-preview js__profile-preview"></div> 
+  </div> */
   );
 }
 

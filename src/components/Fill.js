@@ -48,21 +48,8 @@ function Fill(props) {
             onChange={handleChangeInput}
           />
         </div>
-        <Profile />
-        <GetAvatar />
-        {/* <div className="field__item image">
-          <div className="action action__upload-btn">
-            <label className="profile_label" htmlFor="profile_image">
-              Añadir imagen
-            </label>
-            <input
-              className="add_image__button action__hiddenField js__profile-upload-btn js-input-profile-image"
-              defaultValue="Añadir imagen"
-              id="profile_image"
-            />
-          </div>
-          <div className="add_image__photo-preview js__profile-preview"></div> 
-  </div> */}
+        <Profile avatar={props.avatar}/>
+        <GetAvatar updateAvatar={props.updateAvatar} avatar={props.avatar}/>
         <div className="field__item">
           <label htmlFor="email">Email</label>
           <input

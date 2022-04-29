@@ -15,8 +15,8 @@ function Card(props) {
           <div className="form">
             <form action="">
               <Design data={props.dataCard} handleInput={props.handleInput} />
-              <Fill data={props.dataCard} handleInput={props.handleInput}/>
-              <Share data={props.dataCard} apiData={props.apiData} />
+              <Fill data={props.dataCard} handleInput={props.handleInput} updateAvatar={props.updateAvatar} avatar={props.avatar}/>
+              <Share data={props.dataCard} apiData={props.apiData} handleCard={props.handleCard} />
             </form>
           </div>
         </main>

@@ -41,13 +41,12 @@ function App() {
     });
   };
   const handleClickCreateCard = (ev) => {
-    ev.preventDefault();
     dataApi(dataCard).then((info) => {
       setApiData(info);
     });
   };
   return (
-    <Card apiData={apiData} dataCard={dataCard} handleInput={handleData} handleReset={handleReset} handleCard={handleClickCreateCard}/>
+    <Card apiData={apiData} dataCard={dataCard} handleInput={handleData} handleReset={handleReset} handleCard={handleClickCreateCard} updateAvatar={updateAvatar} avatar={avatar}/>
   );
 }
 
