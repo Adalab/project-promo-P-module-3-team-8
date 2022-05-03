@@ -2,6 +2,8 @@ import '../styles/App.scss';
 import dataApi from '../services/api.js';
 import { useState } from 'react';
 import Card from './Card';
+import Landing from './Landing';
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
   const [apiData, setApiData] = useState({});
@@ -69,16 +71,26 @@ function App() {
     window.open(url, '_blank');
   };
   return (
-    <Card
-      apiData={apiData}
-      dataCard={dataCard}
-      handleInput={handleData}
-      handleReset={handleReset}
-      handleCard={handleClickCreateCard}
-      updateAvatar={updateAvatar}
-      handleTwitterShare={handleTwitterShare}
-      classTwitter={classTwitter}
-    />
+    <>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route
+          path="/Card"
+          element={
+            <Card
+              apiData={apiData}
+              dataCard={dataCard}
+              handleInput={handleData}
+              handleReset={handleReset}
+              handleCard={handleClickCreateCard}
+              updateAvatar={updateAvatar}
+              handleTwitterShare={handleTwitterShare}
+              classTwitter={classTwitter}
+            />
+          }
+        />
+      </Routes>
+    </>
   );
 }
 

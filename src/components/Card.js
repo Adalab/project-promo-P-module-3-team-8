@@ -1,20 +1,22 @@
-import Header from './Header';
-import Footer from './Footer';
 import CardPreview from './CardPreview';
+import Header from './Header';
 import Design from './Design';
 import Fill from './Fill';
 import Share from './Share';
+import Footer from './Footer';
+// import '../styles/components/Create.scss';
+// import '../styles/components/Fieldsets.scss';
 
 function Card(props) {
   return (
     <>
       {/* header */}
       <Header />
-      <main className='create'>
+      <main className="create">
         <CardPreview handleReset={props.handleReset} data={props.dataCard} />
 
-        <div className='form'>
-          <form action=''>
+        <div className="form">
+          <form action="">
             <Design data={props.dataCard} handleInput={props.handleInput} />
             <Fill
               data={props.dataCard}
