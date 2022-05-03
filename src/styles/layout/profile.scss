@@ -56,7 +56,7 @@
   }
 
   &__preview {
-    background-image: url(../../images/example1.jpg);
+    background-image: url('../../images/example1.jpg');
     height: 220px;
     background-size: cover;
     background-repeat: no-repeat;
@@ -135,4 +135,3 @@
     border-color: $codequetecode-orange;
   }
 }
-

@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import defaultAvatar from '../images/example1.jpg';
 
 function GetAvatar(props) {
   // creamos una propiedad de la clase que es la que vamos a usar en varios métodos para cargar la imagen
@@ -57,27 +56,27 @@ function GetAvatar(props) {
     props.updateAvatar(image);
   };
 
-  const avatar = props.avatar === '' ? defaultAvatar : props.avatar;
+  const avatar = props.avatar;
   return (
-    <div className="field__item image">
-    <div className="action action__upload-btn">
-    <label className="profile_label" htmlFor="profile_image">
-      Añadir imagen
-    </label>
+    <div className='field__item image'>
+      <div className='action action__upload-btn'>
+        <label className='profile_label' htmlFor='profile_image'>
+          Añadir imagen
+        </label>
         <input
-          type="file"
+          type='file'
           ref={myFileField}
-          className="add_image__button action__hiddenField js__profile-upload-btn js-input-profile-image"
+          className='add_image__button action__hiddenField js__profile-upload-btn js-input-profile-image'
           onChange={uploadImage}
-          id="profile_image"
+          id='profile_image'
         />
+      </div>
       <div
-        className="get-avatar__preview"
+        className='get-avatar__preview add_image__photo-preview '
         style={{ backgroundImage: `url(${avatar})` }}
       ></div>
     </div>
-    </div>
-  /* <div className="field__item image">
+    /* <div className="field__item image">
           <div className="action action__upload-btn">
             <label className="profile_label" htmlFor="profile_image">
               Añadir imagen
