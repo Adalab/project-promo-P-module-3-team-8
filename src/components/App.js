@@ -42,9 +42,13 @@ function App() {
       github: '',
       photo: '',
     });
+
     SetClassTwitter('hidden');
   };
   const handleClickCreateCard = () => {
+    dataApi(dataCard).then((info) => {
+      setApiData(info);
+    });
     if (
       dataCard.palette !== '' &&
       dataCard.name !== '' &&
@@ -54,10 +58,7 @@ function App() {
       dataCard.github !== '' &&
       dataCard.photo !== ''
     ) {
-      dataApi(dataCard).then((info) => {
-        setApiData(info);
-        SetClassTwitter('');
-      });
+      SetClassTwitter('');
     } else {
       alert('Debes rellenar todos los campos');
     }
@@ -75,7 +76,6 @@ function App() {
       handleReset={handleReset}
       handleCard={handleClickCreateCard}
       updateAvatar={updateAvatar}
-      avatar={dataCard.photo}
       handleTwitterShare={handleTwitterShare}
       classTwitter={classTwitter}
     />

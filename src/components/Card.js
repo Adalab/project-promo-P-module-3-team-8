@@ -20,7 +20,6 @@ function Card(props) {
               data={props.dataCard}
               handleInput={props.handleInput}
               updateAvatar={props.updateAvatar}
-              avatar={props.dataCard.photo}
             />
             <Share
               data={props.dataCard}

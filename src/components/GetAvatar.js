@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import defaultAvatar from '../images/example1.jpg';
 
 function GetAvatar(props) {
   // creamos una propiedad de la clase que es la que vamos a usar en varios métodos para cargar la imagen
@@ -56,7 +57,7 @@ function GetAvatar(props) {
     props.updateAvatar(image);
   };
 
-  const avatar = props.avatar;
+  const avatar = props.avatar === '' ? defaultAvatar : props.avatar;
   return (
     <div className='field__item image'>
       <div className='action action__upload-btn'>
