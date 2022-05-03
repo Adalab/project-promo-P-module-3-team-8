@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "./static/css/main.98a4335d.css",
-    "main.js": "./static/js/main.cf0df60d.js",
+    "main.css": "./static/css/main.5c019817.css",
+    "main.js": "./static/js/main.f90e233d.js",
     "static/media/example1.jpg": "./static/media/example1.b6cf9bf5ddab94720a32.jpg",
     "static/media/Codequetecode.png": "./static/media/Codequetecode.133a0c68f5df46adaabe.png",
     "static/media/tarjetas-molonas.png": "./static/media/tarjetas-molonas.488717f38ae8c822e5fd.png",
     "index.html": "./index.html",
-    "main.98a4335d.css.map": "./static/css/main.98a4335d.css.map",
-    "main.cf0df60d.js.map": "./static/js/main.cf0df60d.js.map"
+    "main.5c019817.css.map": "./static/css/main.5c019817.css.map",
+    "main.f90e233d.js.map": "./static/js/main.f90e233d.js.map"
   },
   "entrypoints": [
-    "static/css/main.98a4335d.css",
-    "static/js/main.cf0df60d.js"
+    "static/css/main.5c019817.css",
+    "static/js/main.f90e233d.js"
   ]
 }
