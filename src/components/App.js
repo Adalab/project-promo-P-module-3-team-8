@@ -18,6 +18,9 @@ function App() {
     github: '',
     photo: '',
   });
+  const [collapsedDesign, setCollapsedDesign] = useState(true);
+  const [collapsedFill, setCollapsedFill] = useState(true);
+  const [collapsedShare, setCollapsedShare] = useState(true);
 
   // Componente foto
 
@@ -66,6 +69,19 @@ function App() {
     }
   };
 
+  const handleDesignClick = () => {
+    console.log("Holis")
+    setCollapsedDesign(!collapsedDesign);
+  };
+
+  const handleFillClick = () => {
+    setCollapsedFill(!collapsedFill);
+  }
+
+  const handleShareClick = () => {
+    setCollapsedShare(!collapsedShare);
+  }
+
   const handleTwitterShare = () => {
     const url = `https://twitter.com/intent/tweet?text=He%20creado%20una%20tarjeta%20con%20el%20Awesome%20profile%20cards%20del%20equipo%20Remake&url=${apiData.cardURL}`;
     window.open(url, '_blank');
@@ -86,6 +102,12 @@ function App() {
               updateAvatar={updateAvatar}
               handleTwitterShare={handleTwitterShare}
               classTwitter={classTwitter}
+              design={collapsedDesign}
+              fill={collapsedFill}
+              share={collapsedShare}
+              handleDesignClick={handleDesignClick}
+              handleFillClick={handleFillClick}
+              handleShareClick={handleShareClick}
             />
           }
         />

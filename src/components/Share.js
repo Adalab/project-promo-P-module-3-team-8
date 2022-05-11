@@ -4,6 +4,10 @@ function Share(props) {
     props.handleCard();
   };
 
+  const handleShare = () => {
+    props.handleShareClick();
+  }
+
   const handleTwitterShare = (ev) => {
     ev.preventDefault();
     props.handleTwitterShare();
@@ -11,7 +15,7 @@ function Share(props) {
 
   return (
     <fieldset className='share'>
-      <legend className='share__legend js__share-legend'>
+      <legend className='share__legend js__share-legend' onClick={handleShare}>
         <div className='share__legend__container'>
           <i className='share__legend__container__icon fa fa-share-alt'></i>
           <h2 className='share__legend__container__text'>Comparte</h2>
@@ -20,8 +24,7 @@ function Share(props) {
           <i className='js__arrowDown3 fas fa-chevron-down fill__legend--title--arrow'></i>
         </div>
       </legend>
-      <article className='js__share share__article'>
-        {/* collapsed */}
+      <article className={`js__share share__article ${props.share ? 'collapsed' : ''}`}>
         <div className='share__container'>
           <button
             className='share__container--button js-share-btn'

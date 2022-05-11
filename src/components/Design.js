@@ -5,10 +5,13 @@ function Design(props) {
       name: ev.target.name,
     });
   };
+  const handleDesign = () => {
+    props.handleDesignClick();
+  }
 
   return (
     <fieldset className='design js__design-fieldset'>
-      <legend className='design__legend js__design-legend'>
+      <legend className='design__legend js__design-legend' id="design_legend" onClick={handleDesign}>
         <div className='design__legend__container'>
           <div>
             <i className='design__legend__container__icon far fa-object-ungroup'></i>
@@ -20,8 +23,7 @@ function Design(props) {
         </div>
       </legend>
 
-      <div className='design__colors js__design-colors '>
-        {/* collapsed */}
+      <div className={`design__colors js__design-colors ${props.design ? 'collapsed' : ''} `}>
         <p className='design__text'>Colores</p>
         <div>
           <div className='design__container design__container--1'>

@@ -7,10 +7,13 @@ function Fill(props) {
       name: ev.target.name,
     });
   };
+  const handleFill = () => {
+    props.handleFillClick();
+  }
 
   return (
     <fieldset className='fill'>
-      <legend className='fill__legend js__fill-legend'>
+      <legend className='fill__legend js__fill-legend' onClick={handleFill}>
         <div className='fill__legend--title'>
           <i className='fill__legend--title--icon fas fa-keyboard'></i>
           <h2 className='fill__legend--title--name'>Rellena</h2>
@@ -19,8 +22,7 @@ function Fill(props) {
           <i className='js__arrowDown2 fas fa-chevron-down fill__legend--title--arrow'></i>
         </div>
       </legend>
-      <div className='js__field js__inputs field'>
-        {/* collapsed */}
+      <div className={`js__field js__inputs field ${props.fill ? 'collapsed' : ''}`}>
         <div className='field__item'>
           <label htmlFor='name'>Nombre completo</label>
           <input
