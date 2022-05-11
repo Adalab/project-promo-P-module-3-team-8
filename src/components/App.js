@@ -38,6 +38,7 @@ function App() {
     });
   };
   const handleReset = () => {
+    setAvatar("");
     setDataCard({
       palette: "1",
       name: "",
