@@ -71,17 +71,34 @@ function App() {
   };
 
   const handleDesignClick = () => {
-    console.log("Holis");
-    setCollapsedDesign(!collapsedDesign);
+    if(collapsedDesign === true){
+      setCollapsedDesign(false);
+      setCollapsedFill(true);
+      setCollapsedShare(true);
+    } else if (collapsedDesign === false){
+      setCollapsedDesign(true);
+    }
   };
 
   const handleFillClick = () => {
-    setCollapsedFill(!collapsedFill);
-  };
+    if(collapsedFill === true){
+      setCollapsedFill(false);
+      setCollapsedDesign(true);
+      setCollapsedShare(true);
+    } else if (collapsedFill === false){
+      setCollapsedFill(true);
+    };
+  }
 
   const handleShareClick = () => {
-    setCollapsedShare(!collapsedShare);
-  };
+    if(collapsedShare === true) {
+      setCollapsedShare(false);
+      setCollapsedDesign(true);
+      setCollapsedFill(true);
+    } else if (collapsedShare === false) {
+      setCollapsedShare(true);
+    };
+  }
 
   const handleTwitterShare = () => {
     const url = `https://twitter.com/intent/tweet?text=He%20creado%20una%20tarjeta%20con%20el%20Awesome%20profile%20cards%20del%20equipo%20Remake&url=${apiData.cardURL}`;
