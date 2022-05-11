@@ -1,23 +1,27 @@
 import "../styles/App.scss";
 import dataApi from "../services/api.js";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "./Card";
 import Landing from "./Landing";
 import { Route, Routes } from "react-router-dom";
+import ls from "../services/LocalStorage";
 
 function App() {
   const [apiData, setApiData] = useState({});
   const [classTwitter, SetClassTwitter] = useState("hidden");
-  const [dataCard, setDataCard] = useState({
-    palette: "1",
-    name: "",
-    job: "",
-    email: "",
-    phone: "",
-    linkedin: "",
-    github: "",
-    photo: "",
-  });
+  const [dataCard, setDataCard] = useState(
+    ls.get("datosUser")
+    // {
+    // palette: "1",
+    // name: "",
+    // job: "",
+    // email: "",
+    // phone: "",
+    // linkedin: "",
+    // github: "",
+    // photo: "",
+    // }
+  );
   const [collapsedDesign, setCollapsedDesign] = useState(true);
   const [collapsedFill, setCollapsedFill] = useState(true);
   const [collapsedShare, setCollapsedShare] = useState(true);
@@ -37,8 +41,10 @@ function App() {
       [inputChanged]: inputValue,
     });
   };
+
   const handleReset = () => {
     setAvatar("");
+
     setDataCard({
       palette: "1",
       name: "",
@@ -52,6 +58,7 @@ function App() {
 
     SetClassTwitter("hidden");
   };
+  console.log(ls);
   const handleClickCreateCard = () => {
     dataApi(dataCard).then((info) => {
       setApiData(info);
@@ -72,34 +79,46 @@ function App() {
   };
 
   const handleDesignClick = () => {
-    if(collapsedDesign === true){
+    if (collapsedDesign === true) {
       setCollapsedDesign(false);
       setCollapsedFill(true);
       setCollapsedShare(true);
-    } else if (collapsedDesign === false){
+    } else if (collapsedDesign === false) {
       setCollapsedDesign(true);
     }
   };
 
   const handleFillClick = () => {
-    if(collapsedFill === true){
+    if (collapsedFill === true) {
       setCollapsedFill(false);
       setCollapsedDesign(true);
       setCollapsedShare(true);
-    } else if (collapsedFill === false){
+    } else if (collapsedFill === false) {
       setCollapsedFill(true);
-    };
-  }
+    }
+  };
 
   const handleShareClick = () => {
-    if(collapsedShare === true) {
+    if (collapsedShare === true) {
       setCollapsedShare(false);
       setCollapsedDesign(true);
       setCollapsedFill(true);
     } else if (collapsedShare === false) {
       setCollapsedShare(true);
-    };
-  }
+    }
+  };
+
+  useEffect(() => {
+    if (dataCard.length === 0) {
+      Card().then((data) => {
+        setDataCard(data);
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    ls.set("datosUser", dataCard);
+  }, [dataCard]);
 
   const handleTwitterShare = () => {
     const url = `https://twitter.com/intent/tweet?text=He%20creado%20una%20tarjeta%20con%20el%20Awesome%20profile%20cards%20del%20equipo%20Remake&url=${apiData.cardURL}`;

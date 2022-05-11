@@ -6,6 +6,7 @@ function Fill(props) {
       value: ev.target.value,
       name: ev.target.name,
     });
+
   };
   const handleFill = () => {
     props.handleFillClick();
