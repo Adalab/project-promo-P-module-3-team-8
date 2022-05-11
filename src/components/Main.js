@@ -7,34 +7,34 @@ function Main() {
     <main className="main">
       <img
         src={logoAwesome}
-        class="main__logo"
+        className="main__logo"
         alt="Logo de tarjetas molonas"
         width="250px"
         height="63px"
       />
-      <div class="group-logo">
-        <p class="group-logo_by">by</p>
-        <img class="group-logo_img" src={logo} alt="Logo de Codequetecode" />
+      <div className="group-logo">
+        <p className="group-logo_by">by</p>
+        <img className="group-logo_img" src={logo} alt="Logo de Codequetecode" />
       </div>
-      <h1 class="main__title">Crea tu tarjeta de visita</h1>
-      <div class="main__text--box">
-        <p class="main__text">
+      <h1 className="main__title">Crea tu tarjeta de visita</h1>
+      <div className="main__text--box">
+        <p className="main__text">
           Crea mejores contactos profesionales de forma fácil y cómoda
         </p>
       </div>
-      <div class="main__container">
-        <ul class="main__box">
-          <li class="main__box--icon">
-            <i class="main__icon fa-solid fa-object-ungroup"></i>
-            <span class="main__box--words">Diseña</span>
+      <div className="main__container">
+        <ul className="main__box">
+          <li className="main__box--icon">
+            <i className="main__icon fa-solid fa-object-ungroup"></i>
+            <span className="main__box--words">Diseña</span>
           </li>
-          <li class="main__box--icon">
-            <i class="main__icon fa-regular fa-keyboard"></i>
-            <span class="main__box--words">Rellena</span>
+          <li className="main__box--icon">
+            <i className="main__icon fa-regular fa-keyboard"></i>
+            <span className="main__box--words">Rellena</span>
           </li>
-          <li class="main__box--icon">
-            <i class="fa fa-share-alt"></i>
-            <span class="main__box--words">Comparte</span>
+          <li className="main__box--icon">
+            <i className="fa fa-share-alt"></i>
+            <span className="main__box--words">Comparte</span>
           </li>
         </ul>
       </div>
