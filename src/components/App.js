@@ -21,7 +21,7 @@ function App() {
       photo: "",
     }
   );
-  const [collapsedDesign, setCollapsedDesign] = useState(true);
+  const [collapsedDesign, setCollapsedDesign] = useState(false);
   const [collapsedFill, setCollapsedFill] = useState(true);
   const [collapsedShare, setCollapsedShare] = useState(true);
   const [avatar, setAvatar] = useState("");
@@ -56,7 +56,6 @@ function App() {
     SetClassTwitter("hidden");
   };
 
-  console.log(ls);
   const handleClickCreateCard = () => {
     dataApi(dataCard).then((info) => {
       setApiData(info);
