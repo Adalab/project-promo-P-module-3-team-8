@@ -1,30 +1,31 @@
-import '../styles/App.scss';
-import dataApi from '../services/api.js';
-import { useState } from 'react';
-import Card from './Card';
-import Landing from './Landing';
-import { Route, Routes } from 'react-router-dom';
+import "../styles/App.scss";
+import dataApi from "../services/api.js";
+import { useState } from "react";
+import Card from "./Card";
+import Landing from "./Landing";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   const [apiData, setApiData] = useState({});
-  const [classTwitter, SetClassTwitter] = useState('hidden');
+  const [classTwitter, SetClassTwitter] = useState("hidden");
   const [dataCard, setDataCard] = useState({
-    palette: '1',
-    name: '',
-    job: '',
-    email: '',
-    phone: '',
-    linkedin: '',
-    github: '',
-    photo: '',
+    palette: "1",
+    name: "",
+    job: "",
+    email: "",
+    phone: "",
+    linkedin: "",
+    github: "",
+    photo: "",
   });
   const [collapsedDesign, setCollapsedDesign] = useState(true);
   const [collapsedFill, setCollapsedFill] = useState(true);
   const [collapsedShare, setCollapsedShare] = useState(true);
-
+  const [avatar, setAvatar] = useState("");
   // Componente foto
 
   const updateAvatar = (avatar) => {
+    setAvatar(avatar);
     setDataCard({ ...dataCard, photo: avatar });
   };
 
@@ -38,53 +39,53 @@ function App() {
   };
   const handleReset = () => {
     setDataCard({
-      palette: '1',
-      name: '',
-      job: '',
-      email: '',
-      phone: '',
-      linkedin: '',
-      github: '',
-      photo: '',
+      palette: "1",
+      name: "",
+      job: "",
+      email: "",
+      phone: "",
+      linkedin: "",
+      github: "",
+      photo: "",
     });
 
-    SetClassTwitter('hidden');
+    SetClassTwitter("hidden");
   };
   const handleClickCreateCard = () => {
     dataApi(dataCard).then((info) => {
       setApiData(info);
     });
     if (
-      dataCard.palette !== '' &&
-      dataCard.name !== '' &&
-      dataCard.job !== '' &&
-      dataCard.email !== '' &&
-      dataCard.linkedin !== '' &&
-      dataCard.github !== '' &&
-      dataCard.photo !== ''
+      dataCard.palette !== "" &&
+      dataCard.name !== "" &&
+      dataCard.job !== "" &&
+      dataCard.email !== "" &&
+      dataCard.linkedin !== "" &&
+      dataCard.github !== "" &&
+      dataCard.photo !== ""
     ) {
-      SetClassTwitter('');
+      SetClassTwitter("");
     } else {
-      alert('Debes rellenar todos los campos');
+      alert("Debes rellenar todos los campos");
     }
   };
 
   const handleDesignClick = () => {
-    console.log("Holis")
+    console.log("Holis");
     setCollapsedDesign(!collapsedDesign);
   };
 
   const handleFillClick = () => {
     setCollapsedFill(!collapsedFill);
-  }
+  };
 
   const handleShareClick = () => {
     setCollapsedShare(!collapsedShare);
-  }
+  };
 
   const handleTwitterShare = () => {
     const url = `https://twitter.com/intent/tweet?text=He%20creado%20una%20tarjeta%20con%20el%20Awesome%20profile%20cards%20del%20equipo%20Remake&url=${apiData.cardURL}`;
-    window.open(url, '_blank');
+    window.open(url, "_blank");
   };
   return (
     <>
@@ -100,6 +101,7 @@ function App() {
               handleReset={handleReset}
               handleCard={handleClickCreateCard}
               updateAvatar={updateAvatar}
+              avatar={avatar}
               handleTwitterShare={handleTwitterShare}
               classTwitter={classTwitter}
               design={collapsedDesign}

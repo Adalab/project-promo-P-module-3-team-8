@@ -57,7 +57,7 @@ function GetAvatar(props) {
     props.updateAvatar(image);
   };
 
-  const avatar = props.avatar === '' ? defaultAvatar : props.avatar;
+  const avatar = props.avatar === "" ? "" : props.avatar;
   return (
     <div className='field__item image'>
       <div className='action action__upload-btn'>

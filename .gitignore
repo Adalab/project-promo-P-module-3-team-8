@@ -41,7 +41,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Dependency directories
-node_modules/
+/node_modules
 
 # Sass
 .sass-cache/
@@ -49,9 +49,6 @@ node_modules/
 
 # JS Sourcemaps
 *.js.map
-
-# Public folder
-public
 
 # vscode
 .vscode

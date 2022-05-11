@@ -17,14 +17,16 @@ function Card(props) {
 
         <div className="form">
           <form action="">
-            <Design 
-            data={props.dataCard} 
-            handleInput={props.handleInput} 
-            handleDesignClick={props.handleDesignClick}
-            design={props.design} />
+            <Design
+              data={props.dataCard}
+              handleInput={props.handleInput}
+              handleDesignClick={props.handleDesignClick}
+              design={props.design}
+            />
             <Fill
               data={props.dataCard}
               handleInput={props.handleInput}
+              avatar={props.avatar}
               updateAvatar={props.updateAvatar}
               handleFillClick={props.handleFillClick}
               fill={props.fill}
