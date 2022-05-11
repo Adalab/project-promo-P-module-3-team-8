@@ -10,17 +10,16 @@ function App() {
   const [apiData, setApiData] = useState({});
   const [classTwitter, SetClassTwitter] = useState("hidden");
   const [dataCard, setDataCard] = useState(
-    ls.get("datosUser")
-    // {
-    // palette: "1",
-    // name: "",
-    // job: "",
-    // email: "",
-    // phone: "",
-    // linkedin: "",
-    // github: "",
-    // photo: "",
-    // }
+    ls.get("datosUser") || {
+      palette: "1",
+      name: "",
+      job: "",
+      email: "",
+      phone: "",
+      linkedin: "",
+      github: "",
+      photo: "",
+    }
   );
   const [collapsedDesign, setCollapsedDesign] = useState(true);
   const [collapsedFill, setCollapsedFill] = useState(true);
@@ -44,7 +43,6 @@ function App() {
 
   const handleReset = () => {
     setAvatar("");
-
     setDataCard({
       palette: "1",
       name: "",
@@ -55,9 +53,9 @@ function App() {
       github: "",
       photo: "",
     });
-
     SetClassTwitter("hidden");
   };
+
   console.log(ls);
   const handleClickCreateCard = () => {
     dataApi(dataCard).then((info) => {
