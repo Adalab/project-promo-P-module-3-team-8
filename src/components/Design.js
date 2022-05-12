@@ -7,11 +7,15 @@ function Design(props) {
   };
   const handleDesign = () => {
     props.handleDesignClick();
-  }
+  };
 
   return (
     <fieldset className='design js__design-fieldset'>
-      <legend className='design__legend js__design-legend' id="design_legend" onClick={handleDesign}>
+      <legend
+        className='design__legend js__design-legend'
+        id='design_legend'
+        onClick={handleDesign}
+      >
         <div className='design__legend__container'>
           <div>
             <i className='design__legend__container__icon far fa-object-ungroup'></i>
@@ -19,11 +23,19 @@ function Design(props) {
           <h2 className='design__legend__container__text'>Diseña</h2>
         </div>
         <div>
-          <i className='js__arrowDown1 fas fa-chevron-down fill__legend--title--arrow'></i>
+          <i
+            className={`js__arrowDown1 fas fa-chevron-down fill__legend--title--arrow ${
+              props.design ? '' : 'rotate'
+            }`}
+          ></i>
         </div>
       </legend>
 
-      <div className={`design__colors js__design-colors ${props.design ? 'collapsed' : ''} `}>
+      <div
+        className={`design__colors js__design-colors ${
+          props.design ? 'collapsed' : ''
+        } `}
+      >
         <p className='design__text'>Colores</p>
         <div>
           <div className='design__container design__container--1'>

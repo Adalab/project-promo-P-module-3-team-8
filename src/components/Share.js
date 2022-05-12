@@ -6,7 +6,7 @@ function Share(props) {
 
   const handleShare = () => {
     props.handleShareClick();
-  }
+  };
 
   const handleTwitterShare = (ev) => {
     ev.preventDefault();
@@ -21,10 +21,16 @@ function Share(props) {
           <h2 className='share__legend__container__text'>Comparte</h2>
         </div>
         <div>
-          <i className='js__arrowDown3 fas fa-chevron-down fill__legend--title--arrow'></i>
+          <i
+            className={`js__arrowDown3 fas fa-chevron-down fill__legend--title--arrow ${
+              props.share ? '' : 'rotate'
+            }`}
+          ></i>
         </div>
       </legend>
-      <article className={`js__share share__article ${props.share ? 'collapsed' : ''}`}>
+      <article
+        className={`js__share share__article ${props.share ? 'collapsed' : ''}`}
+      >
         <div className='share__container'>
           <button
             className='share__container--button js-share-btn'
